@@ -1,0 +1,26 @@
+package main
+
+import "testing"
+
+func Test_convert(t *testing.T) {
+	type args struct {
+		s       string
+		numRows int
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{"Example 1", args{"PAYPALISHIRING", 3}, "PAHNAPLSIIGYIR"},
+		{"Example 2", args{"PAYPALISHIRING", 4}, "PINALSIGYAHRPI"},
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := convert(tt.args.s, tt.args.numRows); got != tt.want {
+				t.Errorf("convert() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
